@@ -1,0 +1,60 @@
+﻿<catel:DataWindow x:Class="WPFApplicationCatel.Views.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:catel="http://catel.codeplex.com"
+                  Width="700"
+                  Height="400"
+                  ResizeMode="CanResize"
+                  ShowInTaskbar="True"
+                  SizeToContent="Manual"
+                  WindowStartupLocation="CenterScreen"
+                  WindowState="Normal">
+
+    <catel:DataWindow.Resources />
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ListView Grid.Row="1"
+                  Margin="10"
+                  ItemsSource="{Binding BooksCollection}"
+                  SelectedItem="{Binding SelectedBook}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Автор" Width="200" DisplayMemberBinding="{Binding Author}"/>
+                    <GridViewColumn Header="Название" Width="200" DisplayMemberBinding="{Binding Title}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ToolBar Grid.Row="0">
+        <Button Command="{Binding AddCommand}"
+                Width="75"
+                Height="22"
+                Margin="10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <Image Source="/WPFApplicationCatel;component/Images/add.ico" />
+        </Button>
+        <Button Width="75"
+                Height="22"
+                Margin="10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding EditCommand}">
+            <Image Source="/WPFApplicationCatel;component/Images/edit.ico" />
+        </Button>
+        <Button Width="75"
+                Height="22"
+                Margin="10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Command="{Binding RemoveCommand}">
+            <Image Source="/WPFApplicationCatel;component/Images/remove.ico" />
+        </Button>
+        </ToolBar>
+
+    </Grid>
+</catel:DataWindow>
