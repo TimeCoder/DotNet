@@ -10,7 +10,17 @@
                   WindowStartupLocation="CenterScreen"
                   WindowState="Normal">
 
-    <catel:DataWindow.Resources />
+    <catel:DataWindow.Resources>
+
+        <Style x:Key="ImageEnabled" TargetType="Image">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.25" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </catel:DataWindow.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -24,36 +34,40 @@
                   SelectedItem="{Binding SelectedBook}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Автор" Width="200" DisplayMemberBinding="{Binding Author}"/>
-                    <GridViewColumn Header="Название" Width="200" DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Width="200"
+                                    DisplayMemberBinding="{Binding Author}"
+                                    Header="Автор" />
+                    <GridViewColumn Width="200"
+                                    DisplayMemberBinding="{Binding Title}"
+                                    Header="Название" />
                 </GridView>
             </ListView.View>
         </ListView>
         <ToolBar Grid.Row="0">
-        <Button Command="{Binding AddCommand}"
-                Width="75"
-                Height="22"
-                Margin="10"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top">
-            <Image Source="/BooksLibrary;component/Images/add.ico" />
-        </Button>
-        <Button Width="75"
-                Height="22"
-                Margin="10"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Command="{Binding EditCommand}">
-            <Image Source="/BooksLibrary;component/Images/edit.ico" />
-        </Button>
-        <Button Width="75"
-                Height="22"
-                Margin="10"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Command="{Binding RemoveCommand}">
-            <Image Source="/BooksLibrary;component/Images/remove.ico" />
-        </Button>
+            <Button Width="75"
+                    Height="22"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Command="{Binding AddCommand}"
+                    Focusable="False">
+                <Image Source="/BooksLibrary;component/Images/add.ico" Style="{StaticResource ImageEnabled}" />
+            </Button>
+            <Button Width="75"
+                    Height="22"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Command="{Binding EditCommand}"
+                    Focusable="False">
+                <Image Source="/BooksLibrary;component/Images/edit.ico" Style="{StaticResource ImageEnabled}" />
+            </Button>
+            <Button Width="75"
+                    Height="22"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Command="{Binding RemoveCommand}"
+                    Focusable="False">
+                <Image Source="/BooksLibrary;component/Images/remove.ico" Style="{StaticResource ImageEnabled}" />
+            </Button>
         </ToolBar>
 
     </Grid>
