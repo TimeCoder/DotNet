@@ -55,7 +55,6 @@ namespace BooksLibrary.ViewModels
 
         
         private Command _addCommand;
-
         public Command AddCommand
         {
             get
@@ -79,7 +78,6 @@ namespace BooksLibrary.ViewModels
 
 
         private Command _editCommand;
-
         public Command EditCommand
         {
             get
@@ -96,7 +94,6 @@ namespace BooksLibrary.ViewModels
 
 
         private Command _removeCommand;
-
         public Command RemoveCommand
         {
             get
@@ -104,14 +101,23 @@ namespace BooksLibrary.ViewModels
                 return _removeCommand ?? (_removeCommand = new Command(
                     () =>
                     {
+                        if (_messageService.Show("Вы действительно хотите удалить объект?", "Внимание!",
+                            MessageButton.YesNo, MessageImage.Warning) != MessageResult.Yes)
+                        {
+                            return;
+                        }
+
                         _pleaseWaitService.Show("Удаление объекта...");
+
                         Thread.Sleep(2000);
                         BooksCollection.Remove(SelectedBook);
+
                         _pleaseWaitService.Hide();
                     },
                     () => SelectedBook != null));
             }
         }
 
+        
     }
 }
