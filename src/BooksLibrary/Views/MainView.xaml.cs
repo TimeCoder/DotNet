@@ -1,7 +1,7 @@
 ﻿using System;
-using WPFApplicationCatel.ViewModels;
+using BooksLibrary.ViewModels;
 
-namespace WPFApplicationCatel.Views
+namespace BooksLibrary.Views
 {
     using Catel.Windows;
 

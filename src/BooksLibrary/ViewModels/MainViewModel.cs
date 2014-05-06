@@ -3,9 +3,9 @@ using System.Threading;
 using Catel.Data;
 using Catel.MVVM.Services;
 using Seterlund.CodeGuard;
-using WPFApplicationCatel.Models;
+using BooksLibrary.Models;
 
-namespace WPFApplicationCatel.ViewModels
+namespace BooksLibrary.ViewModels
 {
     using Catel.MVVM;
 

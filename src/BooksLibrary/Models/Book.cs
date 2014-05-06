@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Catel.Data;
 
-namespace WPFApplicationCatel.Models
+namespace BooksLibrary.Models
 {
     public class Book : ModelBase
     {

@@ -2,9 +2,9 @@
 using Catel.Data;
 using Catel.MVVM;
 using Seterlund.CodeGuard;
-using WPFApplicationCatel.Models;
+using BooksLibrary.Models;
 
-namespace WPFApplicationCatel.ViewModels
+namespace BooksLibrary.ViewModels
 {
     public class BookViewModel : ViewModelBase
     {

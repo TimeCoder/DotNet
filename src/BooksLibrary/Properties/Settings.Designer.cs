@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFApplicationCatel.Properties
+namespace BooksLibrary.Properties
 {
 
 

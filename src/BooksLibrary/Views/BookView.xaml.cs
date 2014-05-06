@@ -1,8 +1,8 @@
 ﻿using System;
 using Catel.Windows;
-using WPFApplicationCatel.ViewModels;
+using BooksLibrary.ViewModels;
 
-namespace WPFApplicationCatel.Views
+namespace BooksLibrary.Views
 {
     public partial class BookView : DataWindow
     {

@@ -1,4 +1,4 @@
-﻿namespace WPFApplicationCatel
+﻿namespace BooksLibrary
 {
     using System.Windows;
 
