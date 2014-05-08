@@ -30,11 +30,11 @@ namespace BooksLibrary.ViewModels
 
             BooksCollection = new ObservableCollection<Book>
             {
-				new Book {Title = "Автостопом по галактике", Author = "Дуглас Адамс"},
-				new Book {Title = "Сто лет одиночества", Author = "Габриель Гарсиа Маркес"},
-				new Book {Title = "Маленький принц", Author = "Антуан де Сент-Экзюпери"},
-				new Book {Title = "1984", Author = "Джордж Оруэлл"},
-				new Book {Title = "Над пропастью во ржи", Author = "Джером Дэвид Сэлинджер"},
+		new Book {Title = "Автостопом по галактике", Author = "Дуглас Адамс"},
+		new Book {Title = "Сто лет одиночества", Author = "Габриель Гарсиа Маркес"},
+		new Book {Title = "Маленький принц", Author = "Антуан де Сент-Экзюпери"},
+		new Book {Title = "1984", Author = "Джордж Оруэлл"},
+		new Book {Title = "Над пропастью во ржи", Author = "Джером Дэвид Сэлинджер"},
             };
         }
         
