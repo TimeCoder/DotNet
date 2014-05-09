@@ -1,0 +1,52 @@
+﻿<catel:DataWindow x:Class="AsyncDemo.Views.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:catel="http://catel.codeplex.com"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  Width="445"
+                  Height="240"
+                  ResizeMode="NoResize"
+                  SizeToContent="Manual"
+                  WindowStartupLocation="CenterScreen"
+                  WindowState="Normal">
+
+    <Grid>
+        <Button Grid.Row="0"
+                Width="75"
+                Margin="0,0,10,10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Command="{Binding CalcAsyncCommand}"
+                Content="Async" />
+        <TextBox Grid.Row="0"
+                 Width="226"
+                 Height="23"
+                 Margin="133,45,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Text="{Binding Sum}"
+                 TextWrapping="Wrap" />
+        <Label Grid.Row="0"
+               Margin="61,41,0,-8"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="2 + 2 = "
+               FontSize="16" />
+        <Button Grid.Row="0"
+                Width="75"
+                Margin="0,0,106,10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Command="{Binding CalcWithBusyIndicatorCommand}"
+                Content="Wait" />
+        <Button Grid.Row="0"
+        	Width="75"
+        	Margin="10,0,0,10"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Bottom"
+        	Command="{Binding ResetCommand}"
+        	Content="Reset" />
+
+    </Grid>
+</catel:DataWindow>
