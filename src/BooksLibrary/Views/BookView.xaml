@@ -7,11 +7,13 @@
                   xmlns:viewModels="clr-namespace:BooksLibrary.ViewModels"
                   Width="450"
                   Height="200"
-          
                   ResizeMode="CanResize"
                   SizeToContent="Manual"
-                  mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="200"
-                  d:DataContext="{d:DesignInstance viewModels:BookViewModel, IsDesignTimeCreatable=True}">
+                  d:DataContext="{d:DesignInstance viewModels:BookViewModel,
+                                                   IsDesignTimeCreatable=True}"
+                  d:DesignHeight="200"
+                  d:DesignWidth="450"
+                  mc:Ignorable="d">
 
     <!--  Resources  -->
 
@@ -19,7 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
 
 
 
@@ -39,7 +41,7 @@
                  Height="23"
                  Margin="10,10,10,0"
                  VerticalAlignment="Top"
-                 Text="{Binding BookAuthor, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                 Text="{Binding BookAuthor}"
                  TextWrapping="Wrap" />
         <Label Grid.Row="1"
                Grid.Column="0"

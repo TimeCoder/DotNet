@@ -1,4 +1,4 @@
-CatelDemo
+DotNetDemo
 =========
 
 Полезные примеры .net-приложений с использованием WPF и замечательного фреймворка Catel, в полном соответствии 
@@ -6,8 +6,7 @@ CatelDemo
 Usefull .net-samples (WPF, Catel, etc.). MVVM only ;-)
 
 
-
-1. BooksLibrary  
+BooksLibrary  
 Простая картотека книг, в виде таблицы. Вы можете добавлять новые, редактировать, удалять. Данный пример научит вас:
  - создавать и отображать дополнительные окна
  - использовать панель кнопок
@@ -15,7 +14,6 @@ Usefull .net-samples (WPF, Catel, etc.). MVVM only ;-)
  - показывать окна сообщений
  - легко реализовывать валидацию полей
  - использовать автоматическую привязку полей ViewModel к полям Model
-
 
 This is simple view of books collection. You can see books, add, edit, remove books. In this example you will see how to:
  - create and show child window
