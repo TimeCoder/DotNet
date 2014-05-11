@@ -18,12 +18,10 @@ namespace BooksLibrary.ViewModels
         private readonly IPleaseWaitService _pleaseWaitService;
         private readonly IMessageService _messageService;
 
+        public override string Title { get { return "View model title"; } }
+
         public MainViewModel(IUIVisualizerService uiVisualizerService, IPleaseWaitService pleaseWaitService, IMessageService messageService)
         {
-            Guard.That(uiVisualizerService).IsNotNull();
-            Guard.That(pleaseWaitService).IsNotNull();
-            Guard.That(messageService).IsNotNull();
-
             _uiVisualizerService = uiVisualizerService;
             _pleaseWaitService = pleaseWaitService;
             _messageService = messageService;
@@ -38,8 +36,6 @@ namespace BooksLibrary.ViewModels
             };
         }
         
-        public override string Title { get { return "View model title"; } }
-
         
         public ObservableCollection<Book> BooksCollection
         {
@@ -65,7 +61,7 @@ namespace BooksLibrary.ViewModels
                 return _addCommand ?? (_addCommand = new Command(
                     () =>
                     {
-                        var viewModel = new BookViewModel(new Book());
+                        var viewModel = new BookViewModel();
 
                         _uiVisualizerService.ShowDialog(viewModel, (sender, e) =>
                         {
@@ -120,7 +116,5 @@ namespace BooksLibrary.ViewModels
                     () => SelectedBook != null));
             }
         }
-
-        
     }
 }

@@ -39,7 +39,5 @@ namespace BooksLibrary.ViewModels
         {
             BookObject = book ?? new Book();
         }
-
-
     }
 }

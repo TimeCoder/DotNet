@@ -68,6 +68,7 @@
                     Focusable="False">
                 <Image Source="/BooksLibrary;component/Images/remove.ico" Style="{StaticResource ImageEnabled}" />
             </Button>
+
         </ToolBar>
 
     </Grid>
