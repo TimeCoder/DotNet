@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{680B74
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDemo", "AsyncDemo\AsyncDemo.csproj", "{12FFEFDF-032E-46AC-AA74-28D13FE41A77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RibbonAndTree", "RibbonAndTree\RibbonAndTree.csproj", "{A1CC6E82-A9C3-4C49-9EFB-809FD732C897}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{12FFEFDF-032E-46AC-AA74-28D13FE41A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12FFEFDF-032E-46AC-AA74-28D13FE41A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12FFEFDF-032E-46AC-AA74-28D13FE41A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CC6E82-A9C3-4C49-9EFB-809FD732C897}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CC6E82-A9C3-4C49-9EFB-809FD732C897}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CC6E82-A9C3-4C49-9EFB-809FD732C897}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CC6E82-A9C3-4C49-9EFB-809FD732C897}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

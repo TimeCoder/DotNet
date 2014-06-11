@@ -1,0 +1,84 @@
+﻿<catel:DataWindow x:Class="RibbonAndTree.Views.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:catel="http://catel.codeplex.com"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:fluent="clr-namespace:Fluent;assembly=Fluent"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:utils="clr-namespace:RibbonAndTree.Utils"
+                  xmlns:vm="clr-namespace:RibbonAndTree.ViewModels"
+                  ResizeMode="CanResize"
+                  ShowInTaskbar="True"
+                  SizeToContent="Manual"
+                  WindowStartupLocation="Manual"
+                  WindowState="Maximized"
+                  d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
+                  mc:Ignorable="d">
+    <catel:DataWindow.Resources>
+
+        <utils:TreeConverter x:Key="TreeConverter" />
+        <utils:NodeToListConverter x:Key="NodeToListConverter" />
+
+        <HierarchicalDataTemplate x:Key="TreeItemTemplate" ItemsSource="{Binding Converter={StaticResource TreeConverter}}">
+            <TextBlock Text="{Binding Name}" />
+        </HierarchicalDataTemplate>
+
+        <Style x:Key="TreeItemStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="True" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding HasData}" Value="True">
+                    <Setter Property="Foreground" Value="DarkViolet" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </catel:DataWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="142" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <fluent:Ribbon Grid.ColumnSpan="2">
+            <fluent:RibbonTabItem Header="Основное">
+                <fluent:RibbonGroupBox Header="Дерево">
+                    <fluent:Button Header="Тест" LargeIcon="/RibbonAndTree;component/Images/random.png" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+
+        <TreeView x:Name="Tree"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  Margin="10"
+                  ItemContainerStyle="{StaticResource TreeItemStyle}"
+                  ItemTemplate="{StaticResource TreeItemTemplate}"
+                  ItemsSource="{Binding TreeData,
+                                        Converter={StaticResource TreeConverter}}" />
+
+        <ListView Grid.Row="1"
+                  Grid.Column="1"
+                  Margin="10"
+                  ItemsSource="{Binding ElementName=Tree,
+                                        Path=SelectedItem,
+                                        Converter={StaticResource NodeToListConverter}}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Width="150"
+                                        DisplayMemberBinding="{Binding Name}"
+                                        Header="Имя" />
+                        <GridViewColumn Width="70"
+                                        DisplayMemberBinding="{Binding Age}"
+                                        Header="Возраст" />
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</catel:DataWindow>
