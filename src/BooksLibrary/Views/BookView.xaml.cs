@@ -6,17 +6,15 @@ namespace BooksLibrary.Views
 {
     public partial class BookView : DataWindow
     {
-        public BookView() //: base(DataWindowMode.Custom)
+        public BookView() 
         {
-            //AddCustomButton(new DataWindowButton("Отмена", () => DialogResult = false));
-            //AddCustomButton(new DataWindowButton("Сохранить", () => DialogResult = true));
-
             InitializeComponent();
         }
-        
-        protected override Type GetViewModelType()
+
+        public BookView(BookViewModel viewModel) : base(viewModel)
         {
-            return typeof (BookViewModel);
+            InitializeComponent();
         }
+
     }
 }

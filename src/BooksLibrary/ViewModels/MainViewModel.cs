@@ -1,13 +1,14 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading;
 using Catel.Data;
-using Catel.MVVM.Services;
+using Catel.MVVM;
+using Catel.Services;
 using Seterlund.CodeGuard;
 using BooksLibrary.Models;
 
 namespace BooksLibrary.ViewModels
 {
-    using Catel.MVVM;
+    
 
     /// <summary>
     /// MainWindow view model.
@@ -58,20 +59,18 @@ namespace BooksLibrary.ViewModels
         {
             get
             {
-                return _addCommand ?? (_addCommand = new Command(
-                    () =>
-                    {
-                        var viewModel = new BookViewModel();
+                return _addCommand ?? (_addCommand = new Command(() =>
+                {
+                    var viewModel = new BookViewModel();
 
-                        _uiVisualizerService.ShowDialog(viewModel, (sender, e) =>
+                    _uiVisualizerService.ShowDialog(viewModel, (sender, e) =>
+                    {
+                        if (e.Result ?? false)
                         {
-                            if (e.Result ?? false)
-                            {
-                                BooksCollection.Add(viewModel.BookObject);
-                            }
-                        });
-                        
-                    }));
+                            BooksCollection.Add(viewModel.BookObject);
+                        }
+                    });
+                }));
             }
         }
 
@@ -81,13 +80,12 @@ namespace BooksLibrary.ViewModels
         {
             get
             {
-                return _editCommand ?? (_editCommand = new Command(
-                    () =>
-                    {
-                        var viewModel = new BookViewModel(SelectedBook);
-                        _uiVisualizerService.ShowDialog(viewModel);
-                    },
-                    () => SelectedBook != null));
+                return _editCommand ?? (_editCommand = new Command(() =>
+                {
+                    var viewModel = new BookViewModel(SelectedBook);
+                    _uiVisualizerService.ShowDialog(viewModel);
+                },
+                () => SelectedBook != null));
             }
         }
 
@@ -97,23 +95,22 @@ namespace BooksLibrary.ViewModels
         {
             get
             {
-                return _removeCommand ?? (_removeCommand = new Command(
-                    () =>
+                return _removeCommand ?? (_removeCommand = new Command(async () =>
+                {
+                    if (await _messageService.Show("Вы действительно хотите удалить объект?", "Внимание!",
+                        MessageButton.YesNo, MessageImage.Warning) != MessageResult.Yes)
                     {
-                        if (_messageService.Show("Вы действительно хотите удалить объект?", "Внимание!",
-                            MessageButton.YesNo, MessageImage.Warning) != MessageResult.Yes)
-                        {
-                            return;
-                        }
+                        return;
+                    }
 
-                        _pleaseWaitService.Show("Удаление объекта...");
+                    _pleaseWaitService.Show("Удаление объекта...");
 
-                        Thread.Sleep(2000);
-                        BooksCollection.Remove(SelectedBook);
+                    Thread.Sleep(2000);
+                    BooksCollection.Remove(SelectedBook);
 
-                        _pleaseWaitService.Hide();
-                    },
-                    () => SelectedBook != null));
+                    _pleaseWaitService.Hide();
+                },
+                () => SelectedBook != null));
             }
         }
     }

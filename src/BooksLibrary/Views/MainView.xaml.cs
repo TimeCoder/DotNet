@@ -14,14 +14,14 @@ namespace BooksLibrary.Views
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
         public MainWindow()
-            : base(DataWindowMode.Custom)
         {
             InitializeComponent();
         }
 
-        protected override Type GetViewModelType()
+        public MainWindow(MainViewModel viewModel) : base(viewModel)
         {
-            return typeof (MainViewModel);
+            InitializeComponent();
         }
+
     }
 }
